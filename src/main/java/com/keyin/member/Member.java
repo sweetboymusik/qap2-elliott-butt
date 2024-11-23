@@ -6,7 +6,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 @Entity
 public class Member {
@@ -27,28 +26,20 @@ public class Member {
 
     private LocalDateTime membershipStartDate;
 
-    private double membershipDurationInYears;
+    private int membershipDurationInMonths;
 
     // constructors
     public Member() {
     }
 
-    public Member(String firstName, String lastName, String address, String email, String phoneNumber, LocalDateTime membershipStartDate) {
+    public Member(String firstName, String lastName, String address, String email, String phoneNumber, LocalDateTime membershipStartDate, int membershipDurationInMonths) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.membershipStartDate = membershipStartDate;
-
-        // calculate membershipDuration (in years)
-        long startInMilli = membershipStartDate.atZone(ZoneId.systemDefault()).toInstant().toEpochMilli();
-        long currentInMilli = System.currentTimeMillis();
-
-        long diffInMilli = currentInMilli - startInMilli;
-        long milliInYear = (long) (365.25 * 24 * 60 * 60 * 1000);
-
-        this.membershipDurationInYears = (double) diffInMilli / milliInYear;
+        this.membershipDurationInMonths = membershipDurationInMonths;
     }
 
     // getters and setters
@@ -108,11 +99,11 @@ public class Member {
         this.membershipStartDate = membershipStartDate;
     }
 
-    public double getMembershipDurationInYears() {
-        return membershipDurationInYears;
+    public int getMembershipDurationInMonths() {
+        return membershipDurationInMonths;
     }
 
-    public void setMembershipDurationInYears(double membershipDuration) {
-        this.membershipDurationInYears = membershipDuration;
+    public void setMembershipDurationInMonths(int membershipDurationInMonths) {
+        this.membershipDurationInMonths = membershipDurationInMonths;
     }
 }

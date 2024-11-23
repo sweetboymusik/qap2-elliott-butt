@@ -11,4 +11,10 @@ public class MemberService {
     public Iterable<Member> getAllMembers() {
         return memberRepository.findAll();
     }
+
+    public Member addMember(Member member) {
+        return memberRepository.save(member);
+    }
 }
+
+

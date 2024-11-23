@@ -1,9 +1,7 @@
 package com.keyin.member;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @CrossOrigin
@@ -14,5 +12,10 @@ public class MemberController {
     @GetMapping("/member/all")
     public Iterable<Member> getAllMember() {
         return memberService.getAllMembers();
+    }
+
+    @PostMapping("/member")
+    public Member addMember(@RequestBody Member member) {
+        return memberService.addMember(member);
     }
 }
