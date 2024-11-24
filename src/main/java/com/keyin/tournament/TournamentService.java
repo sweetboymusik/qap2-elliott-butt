@@ -1,6 +1,7 @@
 package com.keyin.tournament;
 
 import com.keyin.member.Member;
+import com.keyin.member.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ import java.util.Optional;
 public class TournamentService {
     @Autowired
     private TournamentRepository tournamentRepository;
+
+    @Autowired
+    private MemberRepository memberRepository;
 
     public Iterable<Tournament> getAllTournaments() {
         return tournamentRepository.findAll();
@@ -42,5 +46,17 @@ public class TournamentService {
 
     public Tournament addTournament(Tournament tournament) {
         return tournamentRepository.save(tournament);
+    }
+
+    public Iterable<Member> addMemberTournament(int tournamentId, int memberId) {
+        Optional<Tournament> tournament = tournamentRepository.findById(tournamentId);
+
+        if (tournament.isPresent()) {
+            Optional<Member> member = memberRepository.findById(memberId);
+            member.ifPresent(value -> tournament.get().getParticipatingMembers().add(value));
+            return tournament.get().getParticipatingMembers();
+        }
+
+        return Collections.emptyList();
     }
 }

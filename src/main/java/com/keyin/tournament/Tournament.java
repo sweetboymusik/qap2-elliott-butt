@@ -24,7 +24,7 @@ public class Tournament {
 
     private float prizeAmount;
 
-    @OneToMany(mappedBy = "tournament")
+    @OneToMany()
     private List<Member> participatingMembers;
 
     // constructors

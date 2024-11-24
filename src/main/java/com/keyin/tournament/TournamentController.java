@@ -44,4 +44,10 @@ public class TournamentController {
     public Tournament addTournament(@RequestBody Tournament tournament) {
         return tournamentService.addTournament(tournament);
     }
+
+    @PostMapping("tournament/id/{tournamentId}/members/add/{memberId}")
+    public Iterable<Member> addMemberToTournament(@PathVariable("tournamentId") int tournamentId, @PathVariable("memberId") int memberId) {
+        return tournamentService.addMemberTournament(tournamentId, memberId);
+    }
+
 }
