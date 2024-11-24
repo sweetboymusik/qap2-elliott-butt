@@ -51,7 +51,7 @@ public class MemberController {
         return memberService.getMembersByMembershipDuration(duration);
     }
 
-    @PostMapping("/member")
+    @PostMapping("/member/add")
     public Member addMember(@RequestBody Member member) {
         return memberService.addMember(member);
     }
