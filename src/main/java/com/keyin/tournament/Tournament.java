@@ -3,7 +3,7 @@ package com.keyin.tournament;
 import com.keyin.member.Member;
 import jakarta.persistence.*;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,9 +14,9 @@ public class Tournament {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private LocalDateTime startDate;
+    private LocalDate startDate;
 
-    private LocalDateTime endDate;
+    private LocalDate endDate;
 
     private String location;
 
@@ -31,7 +31,7 @@ public class Tournament {
     public Tournament() {
     }
 
-    public Tournament(LocalDateTime startDate, LocalDateTime endDate, String location, float entryFee, float prizeAmount) {
+    public Tournament(LocalDate startDate, LocalDate endDate, String location, float entryFee, float prizeAmount) {
         this.startDate = startDate;
         this.endDate = endDate;
         this.location = location;
@@ -49,19 +49,19 @@ public class Tournament {
         this.id = id;
     }
 
-    public LocalDateTime getStartDate() {
+    public LocalDate getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDateTime startDate) {
+    public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
     }
 
-    public LocalDateTime getEndDate() {
+    public LocalDate getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(LocalDateTime endDate) {
+    public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
     }
 

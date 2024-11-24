@@ -1,8 +1,10 @@
 package com.keyin.tournament;
 
+import com.keyin.member.Member;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDate;
 import java.util.Optional;
 
 @RestController
@@ -19,6 +21,23 @@ public class TournamentController {
     @GetMapping("/tournament/id/{id}")
     public Optional<Tournament> getTournamentById(@PathVariable("id") int id) {
         return tournamentService.getTournamentById(id);
+    }
+
+    @GetMapping("/tournament/start_date/{startDate}")
+    public Optional<Tournament> getTournamentByStartDate(@PathVariable("startDate") String startDate) {
+        LocalDate date = LocalDate.parse(startDate);
+        return tournamentService.getTournamentByStartDate(date);
+    }
+
+    @GetMapping("/tournament/end_date/{endDate}")
+    public Optional<Tournament> getTournamentByEndDate(@PathVariable("endDate") String endDate) {
+        LocalDate date = LocalDate.parse(endDate);
+        return tournamentService.getTournamentByEndDate(date);
+    }
+
+    @GetMapping("/tournament/id/{id}/members")
+    public Iterable<Member> getMembersByTournamentId(@PathVariable("id") int id) {
+        return tournamentService.getMembersByTournamentId(id);
     }
 
     @PostMapping("/tournament/add")
