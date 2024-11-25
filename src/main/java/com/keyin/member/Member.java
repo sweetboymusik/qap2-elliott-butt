@@ -5,7 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 @Entity
 public class Member {
@@ -24,7 +24,7 @@ public class Member {
 
     private String phoneNumber;
 
-    private LocalDateTime membershipStartDate;
+    private LocalDate membershipStartDate;
 
     private int membershipDurationInMonths;
 
@@ -32,7 +32,7 @@ public class Member {
     public Member() {
     }
 
-    public Member(String firstName, String lastName, String address, String email, String phoneNumber, LocalDateTime membershipStartDate, int membershipDurationInMonths) {
+    public Member(String firstName, String lastName, String address, String email, String phoneNumber, LocalDate membershipStartDate, int membershipDurationInMonths) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.address = address;
@@ -91,11 +91,11 @@ public class Member {
         this.phoneNumber = phoneNumber;
     }
 
-    public LocalDateTime getMembershipStartDate() {
+    public LocalDate getMembershipStartDate() {
         return membershipStartDate;
     }
 
-    public void setMembershipStartDate(LocalDateTime membershipStartDate) {
+    public void setMembershipStartDate(LocalDate membershipStartDate) {
         this.membershipStartDate = membershipStartDate;
     }
 
