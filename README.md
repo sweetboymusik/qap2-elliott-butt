@@ -1,6 +1,27 @@
-# API
+# QAP 2 - Golf Club Management
 
-## End Points
+## Docker Container
+
+This project is designed to run inside a docker container. You can either build the image from this repository
+locally or download an image file from <https://hub.docker.com/r/sweetboymusik/golf_club_management>.
+
+To build locally, follow these steps:
+
+1. Ensure you have MySQL installed on your local system.
+2. Create a MySQL DB called ``golf_club_management``
+3. Ensure you have Docker installed on your local system.
+4. Ensure you have Maven installed on your local system.
+5. Clone this repository.
+6. Within the repository directory, run the following command to package the project: <br>
+   ``mvn package``
+7. In that same directory, run the following command to build the docker image: <br>
+   ``docker build -t <image-name> .``
+8. Run one the following commands to start up your newly created docker image: <br>
+   ``docker compose up`` or  ``docker run <image-name>``
+
+After that, you're ready to start using the API! All requests should be made to http://localhost:8080/.
+
+## API End Points
 
 ### Members
 
@@ -72,15 +93,15 @@ POST Requests
     - Adds a tournament to the database.
     - The following JSON fields must be present in the request body:
 
-```json
-{
-  "startDate": "YYYY-MM-DD",
-  "endDate": "YYYY-MM-DD",
-  "location": "Location, City",
-  "entryFee": 50.00,
-  "prizeAmount": 10000.00
-}
-```
+      ```json
+      {
+        "startDate": "YYYY-MM-DD",
+        "endDate": "YYYY-MM-DD",
+        "location": "Location, City",
+        "entryFee": 50.00,
+        "prizeAmount": 10000.00
+      }
+      ```
 
 2. ``/tournament/{tournament_id}/members/add/{member_id}``
     - Adds a member to the specified tournament.
@@ -93,6 +114,20 @@ GET Requests
 
    &nbsp;
 2. ``/tournament/id/{id}``
+    - Returns the tournament with the specified ID.
+    - ``{id}`` should be a valid ``integer`` value.
+
+   &nbsp;
 3. ``/tournament/start_date/{start_date}``
+    - Returns the tournament with the specified start date.
+    - ``{start_date}`` should be a valid ``string`` value, with a YYYY-MM-DD format.
+
+   &nbsp;
 4. ``/tournament/end_date/{end_date}``
+    - Returns the tournament with the specified end date.
+    - ``{end_date}`` should be a valid ``string`` value, with a YYYY-MM-DD format.
+
+   &nbsp;
 5. ``/tournament/id/{id}/members``
+    - Returns **all** participating members of the tournament with the specified ID.
+    - ``{di}`` should be a valid ``integer`` value.
