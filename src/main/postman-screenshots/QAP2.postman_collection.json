@@ -1,0 +1,384 @@
+{
+	"info": {
+		"_postman_id": "3d5dd7af-c063-45ff-824a-b187cecb8f20",
+		"name": "QAP2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "34606999"
+	},
+	"item": [
+		{
+			"name": "Member",
+			"item": [
+				{
+					"name": "Add a Member",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"firstName\": \"Jane\",\n        \"lastName\": \"Johnson\",\n        \"address\": \"11 Hazel Lane, City, State 190293\",\n        \"email\": \"janejohnson@email.com\",\n        \"phoneNumber\": \"1-111-111-1111\",\n        \"membershipStartDate\": \"2024-11-01\",\n        \"membershipDurationInMonths\": 12\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/member/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Members",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Member By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member/id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Members By FIrst Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member/first_name/jack",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"first_name",
+								"jack"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Members By Last Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member/last_name/doe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"last_name",
+								"doe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Member By Full Name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member/full_name/jack/doe",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"full_name",
+								"jack",
+								"doe"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Member By Email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member/email/janedoe@email.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"email",
+								"janedoe@email.com"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Member By Phone Number",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member/phone_number/1-111-111-1111",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"phone_number",
+								"1-111-111-1111"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Member By Membership Duration",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/member/membership_duration/24",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"member",
+								"membership_duration",
+								"24"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Tournament",
+			"item": [
+				{
+					"name": "Add a Tournament",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"startDate\": \"2023-05-11\",\n        \"endDate\": \"2023-05-23\",\n        \"location\": \"Memorial Club, City\",\n        \"entryFee\": 10.50,\n        \"prizeAmount\": 2000.00\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tournament/add",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tournament",
+								"add"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add Member to a Tournament",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\n        \"startDate\": \"2023-05-11\",\n        \"endDate\": \"2023-05-23\",\n        \"location\": \"Central Stadium, City\",\n        \"entryFee\": 10.50,\n        \"prizeAmount\": 2000.00\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/tournament/id/1/members/add/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tournament",
+								"id",
+								"1",
+								"members",
+								"add",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Tournaments",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tournament/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tournament",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get All Members By Tournament ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tournament/id/1/members",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tournament",
+								"id",
+								"1",
+								"members"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tournament By ID",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tournament/id/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tournament",
+								"id",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tournament By Start Date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tournament/start_date/2022-01-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tournament",
+								"start_date",
+								"2022-01-01"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Tournament By End Date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/tournament/end_date/2022-02-01",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"tournament",
+								"end_date",
+								"2022-02-01"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
