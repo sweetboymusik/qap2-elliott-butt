@@ -25,6 +25,11 @@ public class Tournament {
     private float prizeAmount;
 
     @OneToMany()
+    @JoinTable(
+            name = "tournament_member",
+            joinColumns = @JoinColumn(name = "tournament_id"),
+            inverseJoinColumns = @JoinColumn(name = "member_id")
+    )
     private List<Member> participatingMembers;
 
     // constructors

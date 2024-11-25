@@ -49,5 +49,4 @@ public class TournamentController {
     public Iterable<Member> addMemberToTournament(@PathVariable("tournamentId") int tournamentId, @PathVariable("memberId") int memberId) {
         return tournamentService.addMemberTournament(tournamentId, memberId);
     }
-
 }

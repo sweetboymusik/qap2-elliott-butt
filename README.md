@@ -38,7 +38,7 @@ GET Requests
 4. ``/member/last_name/{last_name}``
    > Returns **all** members with the specified last name.
    > ``{last_name}`` should be a valid ``string`` value.
-5. ``/member/first_name/{first_name}/last_name/{last_name}``
+5. ``/member/full_name/{first_name}/{last_name}``
    > Returns **the first** member with the specified first name and last name.
    > ``{first_name}`` and ``{last_name}`` should be a valid ``string`` values.
 6. ``/member/email/{email}``

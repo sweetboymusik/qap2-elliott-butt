@@ -49,14 +49,13 @@ public class TournamentService {
     }
 
     public Iterable<Member> addMemberTournament(int tournamentId, int memberId) {
-        Optional<Tournament> tournament = tournamentRepository.findById(tournamentId);
+        Tournament tournament = tournamentRepository.findById(tournamentId).orElseThrow(() -> new RuntimeException("Tournament not found"));
+        Member member = memberRepository.findById(memberId).orElseThrow(() -> new RuntimeException("Member not found"));
 
-        if (tournament.isPresent()) {
-            Optional<Member> member = memberRepository.findById(memberId);
-            member.ifPresent(value -> tournament.get().getParticipatingMembers().add(value));
-            return tournament.get().getParticipatingMembers();
-        }
+        tournament.getParticipatingMembers().add(member);
 
-        return Collections.emptyList();
+        tournamentRepository.save(tournament);
+
+        return tournament.getParticipatingMembers();
     }
 }
